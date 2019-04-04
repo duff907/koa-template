@@ -1,12 +1,16 @@
 const Koa = require('koa');
 const webpack = require('webpack');
-const config = require('./webpack.js');
+const devConfig = require('../config/webpack/webpack.config.dev');
+const prodConfig = require('../config/webpack/webpack.config.prod');
 const koaStatic = require('koa-static');
+
+const isDev = (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined);
+const config = isDev ? devConfig : prodConfig;
 
 const app = new Koa();
 const compiler = webpack(config);
 
-const isDev = (process.env.NODE_ENV === 'development');
+console.log(isDev);
 
 if (isDev) {
   app.use(require("koa-webpack-dev-middleware")(compiler, {

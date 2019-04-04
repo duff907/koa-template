@@ -7,10 +7,11 @@ module.exports = {
   testURL: 'http://localhost',
   modulePathIgnorePatterns: ['<rootDir>/.*/__mocks__'],
   roots: [
-    '../src'    
+    '../../src'    
   ],
   transform: {
-    "^.+\\.css$": "./cssTransform.js",
+    "^.+\\.css$": "./css-transform.js",
+    "^.+\\.jpeg$": "./file-transform.js",
     "^.+\\.js?$": "babel-jest"
   },
   testRegex: '.*\\.test\\.js$',
@@ -18,5 +19,5 @@ module.exports = {
     '/node_modules/',
     '/test/'
   ],
-  coverageDirectory: '../coverage'
+  coverageDirectory: '../../coverage'
 };

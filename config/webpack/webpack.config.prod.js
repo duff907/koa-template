@@ -1,16 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const publicFolder = path.join(__dirname, '../build');
+const publicFolder = path.join(__dirname, '../../build');
 const publicAssets = path.join(publicFolder, '/assets');
+const appEntry = path.join(__dirname, "../../src/index.js");
 
 module.exports = {
   entry: [
-    "webpack-hot-middleware/client?path=//localhost:3030/__webpack_hmr",
-    "../src/index.js"
+    appEntry
   ],
   context: __dirname,
-  mode: 'development',
+  mode: 'production',
   output: {
     path: publicFolder,
     publicPath: '/',

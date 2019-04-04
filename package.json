@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node platform/index.js",
-    "test": "jest --coverage --config=config/jest.config.js",
+    "test": "jest --coverage --config=config/jest/jest.config.js",
     "lint:css": "stylelint 'src/**/*.css'",
     "lint:js": "eslint .",
     "lint": "yarn lint:js && yarn lint:css",
-    "build": "webpack --config platform/webpack.js && cp ./public/* ./build/"
+    "build": "webpack --config config/webpack/webpack.config.prod.js && cp ./public/* ./build/"
   },
   "dependencies": {
     "@babel/core": "7.2.2",
